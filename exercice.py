@@ -109,10 +109,8 @@ def last_block(list):
     if len([len(list)]) < 6:
         my_list = list
         last_element = len(my_list) - 1
-        print(my_list[last_element - 1])
         while len(my_list[last_element]) < 6:
             my_list[last_element] += "0"
-        print(my_list)
         return my_list
 
 

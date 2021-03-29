@@ -55,6 +55,17 @@ def concat_list_string(list):
     return list_res
 
 
+def binary_to_decimal(binary_list):
+    """ Function binary_to_decimal
+    :param binary_list: binary's list
+    :return: decimal's list
+    """
+    list_decimal = []
+    for element in binary_list:
+        list_decimal.append(int(element, 2))
+    return list_decimal
+
+
 def last_block(list):
     """Function last_block()
     add 0 for block have 6 characters"""

@@ -3,22 +3,30 @@
 Created by Antony Correia
 Python Docstring
 """
-
-""" Exercice 10 """
+import string
 
 
 def listToString(list):
+    """ Function List to String
+    :param list:
+    :return: string
+    """
     result = "".join(list)
-    return (result)
+    return result
 
 
 """ Exercice 11 """
 
 
-def setMultipleOfString(str, mult):
-    while len(str) % mult != 0:
+def setMultipleOfString(str, multiple):
+    """ Function set mutliple
+    :param str: 
+    :param multiple: 
+    :return: string
+    """
+    while len(str) % multiple != 0:
         str = str + '='
-    return (str)
+    return str
 
 
 def string_to_list(text):
@@ -38,12 +46,12 @@ def character_to_ASCII(character_list):
     return character_list
 
 
-def ASCII_to_binary(ASCII_list):
+def ASCII_to_binary(ascii_list):
     """ Function ASCII_to_binary
     transform ASCII to binary"""
-    for i in range(len(ASCII_list)):
-        ASCII_list[i] = bin(ASCII_list[i])[2::1]
-    return ASCII_list
+    for i in range(len(ascii_list)):
+        ascii_list[i] = bin(ascii_list[i])[2::1]
+    return ascii_list
 
 
 def add_zero(binary_list):
@@ -55,12 +63,21 @@ def add_zero(binary_list):
 
 
 def concat_list_string(list):
+    """  Function concat list
+    :param list:
+    :return:
+    """
     list_res = ""
     for i in range(len(list)):
         list_res += list[i]
     return list_res
 
+
 def string_list(string):
+    """  Function transform string to list
+    :param string:
+    :return:
+    """
     list_res = []
     string_res = ""
     index = 0
@@ -71,9 +88,10 @@ def string_list(string):
             list_res.append(string_res)
             string_res = ""
             index = 0
-
+    list_res.append(string_res)
     return list_res
-  
+
+
 def binary_to_decimal(binary_list):
     """ Function binary_to_decimal
     :param binary_list: binary's list
@@ -88,10 +106,27 @@ def binary_to_decimal(binary_list):
 def last_block(list):
     """Function last_block()
     add 0 for block have 6 characters"""
-    for i in range(len(list)):
-        if len(list[i]) < 6:
-            list[i] = list[i] + "00"
-    return list
+    if len([len(list)]) < 6:
+        my_list = list
+        last_element = len(my_list) - 1
+        print(my_list[last_element - 1])
+        while len(my_list[last_element]) < 6:
+            my_list[last_element] += "0"
+        print(my_list)
+        return my_list
+
+
+def encode_base_64(list):
+    """ Function encode base 64 list
+
+    :param list:
+    :return: list base 64
+    """
+    table_base_64 = string.ascii_uppercase + string.ascii_lowercase + string.digits + "+/"
+    list_result = []
+    for element in list:
+        list_result.append(table_base_64[element])
+    return list_result
 
 
 def main():
@@ -100,9 +135,9 @@ def main():
         inp = input("Add something to the list (leave empty to continue): ")
         if len(inp) == 0:
             break
-        string_list = string_to_list(inp)
-        print(string_list)
-        list_ascii = character_to_ASCII(string_list)
+        string_list_temp = string_to_list(inp)
+        print(string_list_temp)
+        list_ascii = character_to_ASCII(string_list_temp)
         print(list_ascii)
         binary_list = ASCII_to_binary(list_ascii)
         print(binary_list)
@@ -110,6 +145,18 @@ def main():
         print(format_binary_list)
         string_binary = concat_list_string(format_binary_list)
         print(string_binary)
+        list_binary_6_digit = string_list(string_binary)
+        print(list_binary_6_digit)
+        list_of_8digit = last_block(list_binary_6_digit)
+        print(list_of_8digit)
+        binary_decimal = binary_to_decimal(list_of_8digit)
+        print(binary_decimal)
+        base64 = encode_base_64(binary_decimal)
+        print(base64)
+        string_base64 = listToString(base64)
+        print(string_base64)
+        multiple_4 = setMultipleOfString(string_base64, 4)
+        print(multiple_4)
 
 
 if __name__ == '__main__':

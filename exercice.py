@@ -37,6 +37,7 @@ def add_zero(binary_list):
         binary_list[i] = "0" + binary_list[i]
     return binary_list
 
+
 def concat_list_string(list):
     list_res = ""
     for i in range(len(list)):
@@ -44,5 +45,14 @@ def concat_list_string(list):
     return list_res
 
 
+def last_block(list):
+    """Function last_block()
+    add 0 for block have 6 characters"""
+    for i in range(len(list)):
+        if len(list[i]) < 6:
+            list[i] = list[i] + "00"
+    return list
+
 if __name__ == '__main__':
-    print(concat_list_string(add_zero(ASCII_to_binary(character_to_ASCII(string_to_list('ABCDE'))))))
+    list_block = ['010000', '010100', '001001', '000011', '010001', '000100', '0101']
+    print(last_block(list_block))

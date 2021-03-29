@@ -54,5 +54,4 @@ def last_block(list):
     return list
 
 if __name__ == '__main__':
-    list_block = ['010000', '010100', '001001', '000011', '010001', '000100', '0101']
-    print(last_block(list_block))
+    print("hello")

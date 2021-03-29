@@ -5,15 +5,21 @@ Python Docstring
 """
 
 """ Exercice 10 """
+
+
 def listToString(list):
     result = "".join(list)
-    return(result)
+    return (result)
+
 
 """ Exercice 11 """
+
+
 def setMultipleOfString(str, mult):
     while len(str) % mult != 0:
         str = str + '='
-    return(str)
+    return (str)
+
 
 def string_to_list(text):
     """ Function string_to_list
@@ -74,18 +80,24 @@ def last_block(list):
             list[i] = list[i] + "00"
     return list
 
+
 def main():
     """ Function Main"""
-    myList = []
     while True:
         inp = input("Add something to the list (leave empty to continue): ")
         if len(inp) == 0:
             break
-        myList.append(inp)
-    myString = listToString(myList)
-    myTabString = setMultipleOfString(myString, 4)
-    print("Exercice 10: " + myString)
-    print("Exercice 11: " + myTabString)
+        string_list = string_to_list(inp)
+        print(string_list)
+        list_ascii = character_to_ASCII(string_list)
+        print(list_ascii)
+        binary_list = ASCII_to_binary(list_ascii)
+        print(binary_list)
+        format_binary_list = add_zero(binary_list)
+        print(format_binary_list)
+        string_binary = concat_list_string(format_binary_list)
+        print(string_binary)
+
 
 if __name__ == '__main__':
     main()

@@ -37,11 +37,23 @@ def add_zero(binary_list):
         binary_list[i] = "0" + binary_list[i]
     return binary_list
 
+
 def concat_list_string(list):
     list_res = ""
     for i in range(len(list)):
         list_res += list[i]
     return list_res
+
+
+def binary_to_decimal(binary_list):
+    """ Function binary_to_decimal
+    :param binary_list: binary's list
+    :return: decimal's list
+    """
+    list_decimal = []
+    for element in binary_list:
+        list_decimal.append(int(element, 2))
+    return list_decimal
 
 
 if __name__ == '__main__':

@@ -4,6 +4,8 @@ Created by Antony Correia
 Python Docstring
 """
 
+import string
+
 """ Exercice 10 """
 def listToString(list):
     result = "".join(list)
@@ -63,18 +65,20 @@ def last_block(list):
             list[i] = list[i] + "00"
     return list
 
+def list_to_base64(list):
+    table_base64 = string.ascii_uppercase + string.ascii_lowercase + string.digits + '+/'
+    new_list = []
+
+    for i in list:
+        new_list.append(table_base64[i])
+    return new_list
+
 def main():
     """ Function Main"""
-    myList = []
-    while True:
-        inp = input("Add something to the list (leave empty to continue): ")
-        if len(inp) == 0:
-            break
-        myList.append(inp)
-    myString = listToString(myList)
-    myTabString = setMultipleOfString(myString, 4)
-    print("Exercice 10: " + myString)
-    print("Exercice 11: " + myTabString)
+    myList = [16,20,9,3,17,4,20]
+    myList = list_to_base64(myList)
+    print("Exercice 9: ")
+    print(myList)
 
 if __name__ == '__main__':
     main()

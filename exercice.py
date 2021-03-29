@@ -44,5 +44,22 @@ def concat_list_string(list):
     return list_res
 
 
+def my_split(string, number):
+    return string[0: number]
+
+def string_list(string):
+    list_res = []
+    string_res = ""
+    index = 0
+    for i in range(len(string)):
+        string_res += string[i]
+        index += 1
+        if index >= 6:
+            list_res.append(string_res)
+            string_res = ""
+            index = 0
+
+    return list_res
+
 if __name__ == '__main__':
-    print(concat_list_string(add_zero(ASCII_to_binary(character_to_ASCII(string_to_list('ABCDE'))))))
+    print(string_list(concat_list_string(add_zero(ASCII_to_binary(character_to_ASCII(string_to_list('ABCDE')))))))
